@@ -15,7 +15,6 @@ public class OrderController {
 
     private final OrderServicePort orderService;
 
-    @Autowired
     public OrderController(OrderServicePort orderService) {
         this.orderService = orderService;
     }
