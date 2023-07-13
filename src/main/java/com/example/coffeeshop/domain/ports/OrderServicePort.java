@@ -1,4 +1,4 @@
-package com.example.coffeeshop.domain.services;
+package com.example.coffeeshop.domain.ports;
 
 import com.example.coffeeshop.domain.models.Product;
 
