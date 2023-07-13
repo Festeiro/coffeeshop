@@ -1,21 +1,20 @@
 package com.example.coffeeshop.domain.models;
 
-import jakarta.persistence.*;
-
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigDecimal;
 
-@Entity
-@Table(name = "TB_PRODUCTS")
 @Data
 @NoArgsConstructor
+@Document(collation = "products")
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private String id;
 
 	private String name;
 
@@ -23,7 +22,7 @@ public class Product {
 
 	private String category;
 
-	private double price;
+	private BigDecimal price;
 
 	private int stock;
 
