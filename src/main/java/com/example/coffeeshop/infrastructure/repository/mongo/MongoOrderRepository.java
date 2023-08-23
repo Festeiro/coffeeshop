@@ -4,6 +4,7 @@ import com.example.coffeeshop.domain.models.Order;
 import com.example.coffeeshop.domain.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

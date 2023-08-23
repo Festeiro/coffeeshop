@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
-@Document(collation = "products")
+@Document(collection = "product")
 public class Product {
 
 	@Id
@@ -25,5 +25,7 @@ public class Product {
 	private BigDecimal price;
 
 	private int stock;
+
+	private String imageUrl;
 
 }

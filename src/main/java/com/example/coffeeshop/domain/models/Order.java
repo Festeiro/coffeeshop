@@ -2,7 +2,9 @@ package com.example.coffeeshop.domain.models;
 
 import com.example.coffeeshop.domain.DomainException;
 import com.example.coffeeshop.domain.OrderStatus;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -70,4 +72,7 @@ public class Order {
         }
     }
 
+    public String getId() {
+        return id;
+    }
 }

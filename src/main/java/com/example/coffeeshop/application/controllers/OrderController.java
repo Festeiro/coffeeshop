@@ -22,7 +22,7 @@ public class OrderController {
     }
 
     @PostMapping("/create")
-    public CreateOrderResponse createOrder(@RequestBody final CreateOrderRequest createOrderRequest) {
+    public CreateOrderResponse createOrder(@RequestBody CreateOrderRequest createOrderRequest) {
         final String id = orderService.createOrder(createOrderRequest.getProducts(), createOrderRequest.getTotalPrice());
 
         return new CreateOrderResponse(id);
