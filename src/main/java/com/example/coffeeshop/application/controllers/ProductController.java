@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
+    private final static Logger logger = Logger.getLogger(ProductController.class.getName());
 
     private final ProductServicePort productService;
 
@@ -26,6 +29,7 @@ public class ProductController {
 
     @GetMapping("/")
     List<ProductResponse> getAllProducts() {
+        logger.info("Request GET /products received");
         return productService.getAllProducts();
     }
 }
