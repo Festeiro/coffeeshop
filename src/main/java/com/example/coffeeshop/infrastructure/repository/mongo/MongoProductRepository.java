@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class MongoProductRepository implements ProductRepository {
@@ -26,4 +27,7 @@ public class MongoProductRepository implements ProductRepository {
     public List<Product> getAllProducts() {
         return springProductRepository.findAll();
     }
+
+    @Override
+    public Optional<Product> getProductById(String id) { return springProductRepository.findById(id); }
 }

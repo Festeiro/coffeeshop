@@ -10,4 +10,6 @@ public interface ProductServicePort {
     ProductResponse saveProduct(ProductRequest productRequest);
 
     List<ProductResponse> getAllProducts();
+
+    ProductResponse getProductById(String id);
 }

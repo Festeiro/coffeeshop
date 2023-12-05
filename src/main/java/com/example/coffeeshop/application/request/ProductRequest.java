@@ -1,7 +1,19 @@
 package com.example.coffeeshop.application.request;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
-public record ProductRequest(String name, String description, String category, BigDecimal price) {
+public record ProductRequest(String id,
+                              String name,
+                              String description,
+                              BigDecimal price,
+                              BigDecimal discountPercentage,
+                              BigDecimal rating,
+                              int stock,
+                              String brand,
+                              String category,
+                              String thumbnail,
+                              ArrayList<String>images,
+                              int quantity) {
 
 }

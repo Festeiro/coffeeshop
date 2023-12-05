@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor
@@ -20,12 +21,22 @@ public class Product {
 
 	private String description;
 
-	private String category;
-
 	private BigDecimal price;
+
+	private BigDecimal discountPercentage;
+
+	private BigDecimal rating;
 
 	private int stock;
 
-	private String imageUrl;
+	private String brand;
+
+	private String category;
+
+	private String thumbnail;
+
+	private ArrayList<String> images;
+
+	private int quantity;
 
 }

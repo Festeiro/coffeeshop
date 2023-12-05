@@ -32,4 +32,10 @@ public class ProductController {
         logger.info("Request GET /products received");
         return productService.getAllProducts();
     }
+
+    @GetMapping("/{id}")
+    ProductResponse getProductById(@PathVariable String id) {
+        logger.info("Request GET /product/" + id + " received");
+        return productService.getProductById(id);
+    }
 }

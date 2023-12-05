@@ -5,17 +5,25 @@ import com.example.coffeeshop.application.response.ProductResponse;
 import com.example.coffeeshop.domain.models.Product;
 import com.example.coffeeshop.domain.repository.ProductRepository;
 import com.example.coffeeshop.domain.utils.mapper.ProductMapper;
+import com.example.coffeeshop.infrastructure.configuration.ImageFilesResources;
+import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.io.FileSystemResource;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ProductService implements ProductServicePort {
 
-    private final ProductRepository productRepository;
+    @Autowired
+    private ConfigurableApplicationContext context;
 
-    //@Autowired
-    //ProductMapper productMapper;
+    private final ProductRepository productRepository;
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -33,5 +41,17 @@ public class ProductService implements ProductServicePort {
 
         return productRepository.getAllProducts().stream()
                 .map(ProductMapper.INSTANCE::toProductResponse).collect(Collectors.toList());
+    }
+
+    @Override
+    public ProductResponse getProductById(String id) {
+        Optional<Product> product = productRepository.getProductById(id);
+        if (product.isPresent()) {
+            ImageFilesResources imageFilesResource = context.getBean(ImageFilesResources.class);
+            FileSystemResource fileResource = imageFilesResource.findInFileSystem(product.get().getName());
+
+            fileResource.getFilename();
+        }
+        return product.map(ProductMapper.INSTANCE::toProductResponse).orElseThrow(IllegalArgumentException::new);
     }
 }
