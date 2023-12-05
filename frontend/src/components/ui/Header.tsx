@@ -19,7 +19,7 @@ export default function Header({ onCartIconClick }: Props) {
           className='mr-3 h-6 sm:h-9'
           src='/coffee.svg'
         />
-        <span className='text-lg font-semibold'>Schena's Coffee</span>
+        <span className='text-lg font-semibold'>Schenas Coffee</span>
         <div className='relative'>
           <button
             type='button'
